@@ -20,6 +20,7 @@ protocol SwipingCardTableViewCellDelegate: class {
 class SwipingCardTableViewCell: UITableViewCell, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet private weak var scrollViewBackground: UIView!
     @IBOutlet private weak var slideLeftView: UIView!
     @IBOutlet private weak var slideRightView: UIView!
     
@@ -90,6 +91,17 @@ class SwipingCardTableViewCell: UITableViewCell, UIScrollViewDelegate {
 
 extension SwipingCardTableViewCell {
     
+    // Accessor variatbles
+    
+    var viewForScrollViewBackground: UIView? {
+        set {
+            add(newValue!, forSlidingDirection: .None)
+        }
+        get {
+            return getView(forSlidingDirection: .None)
+        }
+    }
+    
     var viewForSlideLeft: UIView? {
         set {
             add(newValue!, forSlidingDirection: .Left)
@@ -108,6 +120,8 @@ extension SwipingCardTableViewCell {
         }
     }
     
+    // Accessor method
+    
     func add(view: UIView, forSlidingDirection direction: Direction) {
         switch direction {
         case .Left:
@@ -125,6 +139,11 @@ extension SwipingCardTableViewCell {
             self.slideRightView.addConstraints(self.getConstraintsToFitSubview(view))
             break
         case .None:
+            if let subview = getView(forSlidingDirection: .None) {
+                subview.removeFromSuperview()
+            }
+            self.scrollViewBackground.addSubview(view)
+            self.scrollViewBackground.addConstraints(self.getConstraintsToFitSubview(view))
             break
         }
     }
@@ -136,9 +155,11 @@ extension SwipingCardTableViewCell {
         case .Right:
             return slideRightView.subviews.count > 0 ? slideRightView.subviews[0] : nil
         case .None:
-            return nil
+            return scrollViewBackground.subviews.count > 0 ? scrollViewBackground.subviews[0] : nil
         }
     }
+    
+    // Constraint
     
     func getConstraintsToFitSubview(view: UIView) -> [NSLayoutConstraint] {
         
