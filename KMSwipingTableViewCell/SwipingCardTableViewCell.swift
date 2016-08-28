@@ -23,6 +23,7 @@ class SwipingCardTableViewCell: UITableViewCell, UIScrollViewDelegate {
     @IBOutlet private weak var scrollViewBackground: UIView!
     @IBOutlet private weak var slideLeftView: UIView!
     @IBOutlet private weak var slideRightView: UIView!
+    @IBOutlet private weak var cardView: UIView!
     
     weak var delegate: SwipingCardTableViewCellDelegate?
     
@@ -120,6 +121,15 @@ extension SwipingCardTableViewCell {
         }
     }
     
+    var viewForCardView: UIView? {
+        set {
+            addCard(newValue!)
+        }
+        get {
+            return getCard()
+        }
+    }
+    
     // Accessor method
     
     func add(view: UIView, forSlidingDirection direction: Direction) {
@@ -148,6 +158,11 @@ extension SwipingCardTableViewCell {
         }
     }
     
+    func addCard(view: UIView) {
+        self.cardView.addSubview(view)
+        self.cardView.addConstraints(self.getConstraintsToFitSubview(view))
+    }
+    
     func getView(forSlidingDirection direction: Direction) -> UIView? {
         switch direction {
         case .Left:
@@ -157,6 +172,10 @@ extension SwipingCardTableViewCell {
         case .None:
             return scrollViewBackground.subviews.count > 0 ? scrollViewBackground.subviews[0] : nil
         }
+    }
+    
+    func getCard() -> UIView? {
+        return cardView.subviews.count > 0 ? cardView.subviews[0] : nil
     }
     
     // Constraint

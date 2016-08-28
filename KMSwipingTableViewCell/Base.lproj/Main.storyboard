@@ -40,8 +40,8 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CeZ-Dq-oYW" userLabel="Container View">
                                                             <rect key="frame" x="0.0" y="0.0" width="1800" height="175"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RC-Nu-vhT" userLabel="Card">
-                                                                    <rect key="frame" x="608" y="8" width="584" height="167"/>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RC-Nu-vhT">
+                                                                    <rect key="frame" x="600" y="0.0" width="600" height="175"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="300" id="PBr-M5-K5u"/>
@@ -67,7 +67,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="9RC-Nu-vhT" secondAttribute="trailing" priority="750" constant="8" id="Dnm-Wd-zUf"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Z5p-st-bLK" secondAttribute="trailing" id="HqB-cN-UG1"/>
-                                                                <constraint firstItem="9RC-Nu-vhT" firstAttribute="top" secondItem="CeZ-Dq-oYW" secondAttribute="top" constant="8" id="Itj-cx-ZZS"/>
+                                                                <constraint firstItem="9RC-Nu-vhT" firstAttribute="top" secondItem="CeZ-Dq-oYW" secondAttribute="top" id="Itj-cx-ZZS"/>
                                                                 <constraint firstAttribute="bottom" secondItem="c9i-Me-FQd" secondAttribute="bottom" id="Njf-MP-6wG"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Z5p-st-bLK" secondAttribute="bottom" id="PM9-BI-ikQ"/>
                                                                 <constraint firstItem="9RC-Nu-vhT" firstAttribute="centerX" secondItem="CeZ-Dq-oYW" secondAttribute="centerX" id="XYH-Na-we3"/>
@@ -101,7 +101,7 @@
                                                         <constraint firstItem="CeZ-Dq-oYW" firstAttribute="top" secondItem="YUD-dR-oo8" secondAttribute="top" id="XIK-lB-AcZ"/>
                                                         <constraint firstItem="CeZ-Dq-oYW" firstAttribute="height" secondItem="YUD-dR-oo8" secondAttribute="height" id="ZfH-XX-neG"/>
                                                         <constraint firstItem="9RC-Nu-vhT" firstAttribute="width" secondItem="YUD-dR-oo8" secondAttribute="width" id="dEu-Xu-B30"/>
-                                                        <constraint firstItem="9RC-Nu-vhT" firstAttribute="width" secondItem="YUD-dR-oo8" secondAttribute="width" constant="-16" id="gb6-vu-OGQ"/>
+                                                        <constraint firstItem="9RC-Nu-vhT" firstAttribute="width" secondItem="YUD-dR-oo8" secondAttribute="width" id="gb6-vu-OGQ"/>
                                                         <constraint firstItem="CeZ-Dq-oYW" firstAttribute="leading" secondItem="YUD-dR-oo8" secondAttribute="leading" id="syR-aP-4hj"/>
                                                         <constraint firstAttribute="trailing" secondItem="CeZ-Dq-oYW" secondAttribute="trailing" id="tvp-c0-fBs"/>
                                                         <constraint firstItem="9RC-Nu-vhT" firstAttribute="height" secondItem="YUD-dR-oo8" secondAttribute="height" id="xAd-Kj-E3L"/>
@@ -149,6 +149,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="cardView" destination="9RC-Nu-vhT" id="g1p-za-2tO"/>
                                             <outlet property="scrollView" destination="YUD-dR-oo8" id="dZA-p3-45o"/>
                                             <outlet property="scrollViewBackground" destination="4qL-he-WGW" id="5LB-J9-GA6"/>
                                             <outlet property="slideLeftView" destination="Z5p-st-bLK" id="Bo6-WP-RR5"/>

@@ -49,10 +49,12 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? SwipingCardTableViewCell else {
             return UITableViewCell()
         }
+        
         cell.layoutIfNeeded()
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 150))
+        let label = UILabel(frame: CGRect(x: 600, y: 0, width: 300, height: 150))
         label.text = "595959595"
         label.textAlignment = .Center
+        
         let bg = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
         bg.backgroundColor = UIColor.redColor()
         bg.addSubview(label)
@@ -66,7 +68,7 @@ extension ViewController: UITableViewDataSource {
         right.addSubview(label)
         
         if indexPath.row%3==0 {
-            cell.viewForScrollViewBackground = bg
+            cell.viewForCardView = bg
         }
         else if indexPath.row%3==1 {
             cell.viewForSlideLeft = left
